@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    
+<br>
+<center><h1><strong>REQUISICIONES</strong></h1></center>
+
+    
+<h3><b> Solicitud de requisicion de personal </b> </h3>
+<br>
+<div class="container">
+    
+   <div class="container">
+    <div class="row">
+        <div class="col-12" style="background-color: white; border-radius: 1cm;">
+            <br>
+            <form action="/req_fagrega" method="post">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Solicitud De Requisicion</h3>
+                        </div>
+                    </div>
+                    <!--Folio _ Area _ Fecha De Elaboración-->
+                    <div class="row align-items-start">
+                      <div class="col">
+                        <label style="color: black;" for="folio" class="form-label">Folio</label>
+                            <input type="text" class="form-control" name="folio" id="fol" placeholder="Folio">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="idArea" class="form-label">Área que solicita</label>
+                        <select name="idArea" id="idArea" class = "form-select" >
+                            <option selected>Elige...</option>
+                            {%
+                              for i in catArea
+                           %}
+                              <option value="{{i.0}}">{{i.1}}</option>
+                           {% endfor %}
+                    </select>
+                </div>
+                      <div class="col">
+                        <label style="color: black;" for="fechaElab" class="form-label">Fecha De Elaboracion</label>
+                            <input type="date" class="form-control" name="fechaElab" id="fechaElab" placeholder="Fecha">
+                      </div>
+                    </div>
+                    <!--Nombre del Puesto-->
+                    <div class="col-md-6">
+                      <label for="idPuesto" class="form-label">Puesto a cubrir</label>
+                      <select name="idPuesto" id="idPuesto" class = "form-select" >
+                          <option selected>Elige...</option>
+                          {%
+                            for i in catPuesto
+                         %}
+                            <option value="{{i.0}}">{{i.1}}</option>
+                         {% endfor %}
+                  </select>
+              </div>
+                    <!--Nombre y puesto de quien solicita -->
+                    <div class="row">
+                        <div class="col">
+                            <label style="color: black;" for="nomSolicita" class="form-label">Nombre y puesto de quien solicita</label>
+                            <input type="text" class="form-control" name="nomSolicita" id="nomSolicita" placeholder="Nombre del Solicitante">
+                        </div>
+                    </div>
+                    <!--FECHAS DE RECLUTAMEINTO / FECHA DE INICIO DE VACANTE / TIPO DE VACANTE-->
+                    <div class="row">
+                        <div class="col">
+                            <label style="color: black;" for="fechaRecluta" class="form-label">Fecha De Reclutamiento</label>
+                            <input type="date" class="form-control" name="fechaRecluta" id="fechaRecluta" >
+                        </div>
+                        <div class="col">
+                            <label style="color: black;" for="fechaInicVac" class="form-label">Fecha Inicio De Vacante</label>
+                            <input type="date" class="form-control" name="fechaInicVac" id="fechaInicVac">
+                        </div>
+                        <div class="col-md-4">
+                            <label style="color: black;" for="tipo" class="form-label">Tipo de Vacante</label>
+                            <input type="text" class="form-control" name="tipo" id="tipo">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span><b>Vacante generada por: </b></span>
+                       </div>
+                       <div class="col-md-12">
+                          <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="motReq" id="motivoRequisicion" value="Baja">
+                          <label class="form-check-label" for="motivoRequisicion">Baja</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="motReq" id="motivoRequisicion" value="Incapacidad">
+                            <label class="form-check-label" for="motivoRequisicion">Incapacidad</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="motReq" id="motivoRequisicion" value="Licencia o Permiso" >
+                            <label class="form-check-label" for="motivoRequisicion">Licencia o Permiso</label>
+                          </div>
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="motReq" id="motivoRequisicion" value="Nueva Creación" >
+                            <label class="form-check-label" for="motivoRequisicion">Nueva Creación</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="motReq" id="motivoRequisicion" value="Defunción">
+                          <label class="form-check-label" for="motivoRequisicion">Defunción</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="motReq" id="motivoRequisicion" value="Otro" >
+                            <label class="form-check-label" for="motivoRequisicion">Otro</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label" for="motivoEspecifique">Especifique</label>
+                            <input class="form-control" type="text" name="motivoEspecifique" id="motivoEspecifique"></input>
+                          </div>
+                       </div>
+                    
+                    </div>
+
+<br>
+<br>
+<br>
+<center>
+<div class="col-12">
+  <button type="submit" class="btn btn-warning">Enviar</button>
+</div>
+</center>
+{% endblock %}
+ 
+ 

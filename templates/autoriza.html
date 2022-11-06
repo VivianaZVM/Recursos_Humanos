@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS >
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}"-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/estilos.css">
+
+    
+   
+  <title>Proyecto RH</title>
+</head>
+
+<body>
+
+    <center><h3><b>Autorizar</b></h3></center>
+    <form action="/autoriza_fagrega" method="post">
+    <div class="col-12" style="background-color: white; border-radius: 1cm;">
+        <div class="form-check form-check-inline">
+            <label for="folio" class="form-label">Folio:</label>
+            <input type="text" class="form-control" name="folio" id="folio" value="{{folio.0}}" readonly="readonly"></input>
+        </div>
+        <br>
+        <div class="form-check form-check-inline">
+            <label for="puestoJefeSup" class="form-label">Puesto Vacante:</label>
+            <input type="text" class="form-control" name="puestoJefeSup" id="puestoJefeSup" value="{{puestovac.0}}" readonly="readonly"></input>
+        </div>
+        <div class="row align-items-start">
+            <div class="col">
+            <label style="color: black;" for="nomRevisa" class="form-label">Revisado por:</label>
+            <input type="text" class="form-control" name="nomRevisa" id="nomRevisa" placeholder="Ingrese nombre y puesto">
+        </div>
+        <div class="row align-items-start">
+            <div class="col">
+            <label style="color: black;" for="nomAutoriza" class="form-label">Autorizado por:</label>
+            <input type="text" class="form-control" name="nomAutoriza" id="nomAutoriza" placeholder="Ingrese nombre y puesto">
+        </div>
+    <br>
+    <br>
+        <center>
+            <div class="col-12">
+                <button type="submit" class="btn btn-success">Enviar Autorizacion</button>
+            </div>
+        </center>
+    </form>
+<body>
+</html>

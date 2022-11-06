@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h3>
+    <br>
+    <Center> <b> Editar Idioma </b> </Center>
+
+</h3>
+   <br>
+   <br>
+    <form action="/idioma_fedita/{{idioma.0}}" method="post">
+        <div class="container">
+          <div class="form-row">
+               <div class="col-xs-12 ">
+                <div class="mb-3">
+                      <label for="nombre" class="form-label"><strong>Ingrese el idioma:</strong></label>
+                      <input type="text" class="form-control" name="nombre" id="nombre" placeholder="idioma" value="{{idioma.1}}">
+                </div>
+
+                </div>
+              <button type="submit" class="btn btn-info">Actualizar</button>
+          </div>
+    </div>
+
+</form>
+
+{% endblock %}

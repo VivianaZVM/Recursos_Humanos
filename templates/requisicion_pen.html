@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    
+<br>
+<center><table width="80%" border="0" cellpadding="2%"></table></center>
+
+    <tr>
+        <td>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="table-dark" scope="col">Folio</th>
+                        <th class="table-dark" scope="col">Puesto</th>
+                    </tr>
+                </thead>
+                <br>
+                <tbody>
+                <table class="table table-striped table-success">
+                    {% for i in req %}
+                        <tr>
+                            <td width="55%">{{i.1}}</td>
+                            <td width="15%"><center><a class="btn btn-success" href="/requisicion_fdetalle/{{i.0}}" role="button">Detalle</a></center></td>
+                            <td width="15%"><center><a class="btn btn-success" href="/autoriza_fdetalle/{{i.0}}" role="button">Autorizar</a></center></td>
+                            <td width="15%"><center><a class="btn btn-outline-success" href="/req_borrar/{{i.0}}" role="button">Borrar</a></center></td>
+
+
+                        </tr>
+                    {% endfor %}
+                </table>
+                </tbody>
+
+            </table>
+<br>
+<div class="container">
+    
+   <br>
+   <h3><CENTER> <b> Detalle: </b> </CENTER></h3>
+   <br>
+<form class="row g-3"  action="/requisicion_fdetalle/" method="GET">  
+<div class="col-12" style="background-color: white; border-radius: 1cm;">
+   <div class="form-check form-check-inline">
+     <label for="folio" class="form-label">Folio:</label>
+     <input type="text" class="form-control" name="folio" id="folio" value="{{dat.1}}" readonly="readonly"></input>
+   </div>
+   <br>
+   <div class="col-md-6">
+    <label for="idArea" class="form-label">Área solicitada</label>
+    <input type="text" class="form-control" name="idArea" id="idArea" value="{{catArea.1}}" readonly="readonly"></input>
+  </div>
+   <div class="form-check form-check-inline">
+     <label style="color: black;" for="fechaElab" class="form-label">Fecha de Elaboracion:</label>
+     <input type="date" class="form-control" name="fechaElab" id="fechaElab" value="{{dat.2}}" readonly="readonly"></input> 
+   </div>
+   <div class="form-check form-check-inline">
+     <label for="idPuesto" class="form-label">Puesto a cubrir:</label>
+     <input type="text" class="form-control" name="idPuesto" id="idPuesto" value="{{catPuesto.1}}" readonly="readonly"></input>
+   </div>
+   <div class="form-check-inline">
+     <label for="nomSolicita" class="form-label">Nombre y puesto de quien lo solicita:</label>
+     <input type="text" class="form-control" name="nomSolicita" id="nomSolicita" value="{{dat.5}}" readonly="readonly"></input>
+   </div>
+   <br>
+   <br>
+   <br>
+   <div class="form-check form-check-inline">
+     <label for="fechaRecluta" class="form-label">Fecha de reclutamiento:</label>
+     <input type="date" class="form-control" name="fechaRecluta" id="fechaRecluta" value="{{dat.3}}" readonly="readonly"></input>
+   </div>
+   <div class="form-check form-check-inline">
+     <label for="fechaInicVac" class="form-label">Fecha de inicio Vacante:</label>
+     <input type="date" class="form-control" name="fechaInicVac" id="fechaInicVac" value="{{dat.4}}" readonly="readonly"></input>
+   </div>
+   <div class="form-check form-check-inline">
+     <label for="tipo" class="form-label">Tipo de Vacante:</label>
+     <input type="text" class="form-control" name="tipo" id="tipo" value="{{dat.8}}" readonly="readonly"></input>
+   </div>
+   <br>
+   <br>
+   <br>
+   <div class="form-check form-check-inline">
+    <span><b>Vacante generada por: </b></span>
+  </div>
+  <div class="col-md-6">
+    <label for="motivoRequisicion" class="form-label">Motivo Requisicion</label>
+    <input type="text" class="form-control" name="motReq" id="motivoRequisicion" value="{{catmotReq.0}}" readonly="readonly"></input>
+  </div>
+    <div class="form-check-inline">
+        <label for="motivoEspecifique" class="form-label">Especifique</label>
+        <input type="text" class="form-control" name="motivoEspecifique" id="motivoEspecifique" value="{{catEsp.0}}" readonly="readonly"></input>
+    </div>
+    <div class="form-check-inline">
+        <label for="idArea" class="form-label">Área del Puesto Vacante</label>
+        <input type="text" class="form-control" name="idArea" id="idArea" value="{{catArea.1}}" readonly="readonly"></input>
+    </div>
+    <div class="col">
+        <label for="puestoJefeSup" class="form-label">Puesto del Jefe Superior</label>
+        <input type="text" class="form-control" name="puestoJefeSup" id="puestoJefeSup" value="{{catPuestoJS.0}}" readonly="readonly"></input>
+    </div>
+    <div class="col-6">
+        <label for="jornada" class="form-label">Jornada</label>
+        <input type="text" class="form-control" name="jornada" id="jornada" value="{{catJornada.0}}" readonly="readonly"></input>
+    </div>
+    <div class="form-check-inline">
+        <label for="remunMensual" class="form-label">Remuneración Mensual</label>
+        <input type="text" class="form-control" name="remunMensual" id="remunMensual" value="{{catRemu.0}}" readonly="readonly"></input>
+    </div>
+    <div class="col-12">
+        <label for="descripciongeneral" class="form-label">Descripción General</label>
+        <input type="text" class="form-control" name="descripciongeneral" id="descripciongeneral" value="{{catDescrG.0}}" readonly="readonly"></input>
+    </div>
+    <div class="form-check-inline">
+         <label for="funciones" class="form-label">Funciones</label>
+         <input type="text" class="form-control" name="funciones" id="funciones" value="{{catFunciones.0}}" readonly="readonly"></input>
+    </div>
+    <br>
+    <br>
+    <h5 style="color: grey">Perfil para el puesto</h5>
+
+    <div class="col-md-4">
+      <label for="idEscolaridad" class="form-label">Escolaridad</label>
+      <input type="text" class="form-control" name="idEscolaridad" id="idEscolaridad" value="{{catEscolaridad.1}}" readonly="readonly"></input>
+   </div>
+
+    <div class="form-check-inline">
+        <label for="edad" class="form-label">Edad</label>
+        <input type="text" class="form-control" name="edad" id="edad" value="{{catEdad.0}}" readonly="readonly"></input>
+    </div>
+    <div class="form-check-inline">
+        <label for="sexo" class="form-label">Sexo</label>
+        <input type="text" class="form-control" name="sexo" id="sexo" value="{{catSexo.0}}" readonly="readonly"></input>
+    </div>
+    <div class="form-check-inline">
+        <label for="idEstadocivil" class="form-label">Estado Civil</label>
+        <input type="text" class="form-control" name="idEstadocivil" id="idEstadocivil" value="{{catEdoCivil.1}}" readonly="readonly"></input>
+    </div>
+
+    <br>
+    <br>
+    <br>
+</div>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h3>
+    <br>
+    <Center> <b> Editar Escolaridad </b> </Center>
+
+</h3>
+   <br>
+   <br>
+    <form action="/escolaridad_fedita/{{escolaridad.0}}" method="post">
+        <div class="container">
+          <div class="form-row">
+               <div class="col-xs-12 ">
+                <div class="mb-3">
+                      <label for="nombre" class="form-label"><strong>Ingrese la escolaridad:</strong></label>
+                      <input type="text" class="form-control" name="nombre" id="nombre" placeholder="escolaridad" value="{{escolaridad.1}}">
+                </div>
+
+                </div>
+              <button type="submit" class="btn btn-info">Actualizar</button>
+          </div>
+    </div>
+
+</form>
+
+{% endblock %}
